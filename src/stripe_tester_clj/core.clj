@@ -1,7 +1,7 @@
 (ns stripe-tester-clj.core
   (:require [clojure.data.json :as json]))
 
-(def latest-stripe-version "2015-04-07")
+(def stripe-version "2015-04-07")
 
 (defn file-exists?
   [file-name]

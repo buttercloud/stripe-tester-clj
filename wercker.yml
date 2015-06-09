@@ -12,3 +12,8 @@ build:
         name: run tests
         code: |
           lein test
+  after-steps:
+    - dignifiedquire/flowdock-notify@1.0.3:
+        token: 2e1766700270d32d795c8d73c65d4b61
+        from_address: wercker@notify.com
+        on: failed

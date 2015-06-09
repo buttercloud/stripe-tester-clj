@@ -1,14 +1,12 @@
 # stripe-tester-clj
 
-A Clojure library designed to ... well, that part is up to you.
+StripeTester is a testing Clojure library used to simulate Stripe webhooks and post them to a specified URL.
 
 ## Usage
 
-FIXME
 
 ## License
 
-Copyright © 2015 FIXME
+Copyright © 2015 ButterCloud LLC.
 
-Distributed under the Eclipse Public License either version 1.0 or (at
-your option) any later version.
+Distributed under the Eclipse Public License version 1.0

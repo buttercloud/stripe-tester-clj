@@ -3,10 +3,10 @@
             [clojure.string :as string]
             [clj-http.client :refer [post success?]]))
 
-(def ^:const latest-version "2015-04-07")
+(def ^:const latest-version "latest")
 
 (defn- import-template [callback-type api-version]
-  (let [file-name (str "stripe-webhooks/" latest-version "/" (name callback-type) ".json")]
+  (let [file-name (str "stripe-webhooks/" api-version "/" (name callback-type) ".json")]
     (if (.exists (clojure.java.io/file file-name))
       (json/read-str (slurp file-name) :key-fn keyword)
       (throw (Exception. "Invalid callback type")))))

@@ -8,14 +8,22 @@
   (testing "Send data to webhook URL"
     (let [url "http://localhost:3000/transactions"
           bad-url "http://localhost:3000/fake"
+          secure-url "https://localhost:3000/transactions"
+          secure-bad-url "https://localhost:3000/fake"
           data (load-template :invoice-created)]
       (with-fake-routes
         {url (fn [req] {:status 200 :headers {} :body (json/write-str data)})
-         bad-url (fn [req] {:status 404 :headers {} :body "404"})}
+         bad-url (fn [req] {:status 404 :headers {} :body "404"})
+         secure-url (fn [req] {:status 200 :headers {} :body (json/write-str data)})
+         secure-bad-url (fn [req] {:status 404 :headers {} :body "404"})}
         (testing "create-event should return true when request is successful"
           (is (= true (create-event :invoice-created {:url url}))))
+        (testing "create-event should return true when request is successful for secure url"
+          (is (= true (create-event :invoice-created {:url secure-url}))))
         (testing "create-event should return response map when request fails"
-          (is (map? (create-event :invoice-created {:url bad-url}))))))))
+          (is (map? (create-event :invoice-created {:url bad-url}))))
+        (testing "create-event should return response map when request fails for secure url"
+          (is (map? (create-event :invoice-created {:url secure-bad-url}))))))))
 
 (testing "Importing Data"
   (testing "Import webhook JSON data to clojure data"

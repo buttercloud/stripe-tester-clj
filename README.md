@@ -10,7 +10,7 @@ stripe-tester-clj allows you to submit webhooks to your application without hitt
 ## Installation
 
 ```clojure
-[stripe-tester-clj "0.1.0"]
+[stripe-tester-clj "0.2.0"]
 ```
 
 ## Usage

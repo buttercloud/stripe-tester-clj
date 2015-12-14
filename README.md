@@ -55,6 +55,8 @@ In your tests:
 
 ## Supported Stripe Webhook API Versions
 
+* [2015-10-16](https://github.com/buttercloud/stripe-tester-clj/tree/master/stripe-webhooks/2015-10-16)
+* [2015-10-01](https://github.com/buttercloud/stripe-tester-clj/tree/master/stripe-webhooks/2015-10-01)
 * [2015-04-07](https://github.com/buttercloud/stripe-tester-clj/tree/master/stripe-webhooks/2015-04-07)
 
 Need a version of the API not listed here? Open an issue and let us know.
